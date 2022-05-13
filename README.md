@@ -6,3 +6,5 @@ Estes scripts devem ser vistos como um "work in progress" e por conseguinte, a D
 Nota: Pode-se executar o script, de várias formas. Uma forma possível é descarregar o script do github e no software opensource dBeaver, importar o SQL script. Depois deve-se ativar (Set as default) a base de dados (no schema public) onde se pretende executar o script (Execute SQL Script [Alt+X]) no SQL Editor:
 
 ![image](https://user-images.githubusercontent.com/46351849/168315052-7563be74-890d-4856-9050-c6945cace556.png)
+
+Os resultados também podem ser visualizados no QGIS através de uma "materialized view".
