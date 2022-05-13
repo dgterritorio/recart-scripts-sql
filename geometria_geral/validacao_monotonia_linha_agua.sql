@@ -1,4 +1,4 @@
---  testa a monotonia do sinal da diferença em z entre vértices consecutivos das linhas de água
+--  testa a monotonia do sinal da diferença em z entre vértices consecutivos das linhas de água (Curso de água - eixo)
 WITH p AS (
          SELECT curso_de_agua_eixo.identificador,
             public.st_dumppoints(curso_de_agua_eixo.geometria) AS dump
