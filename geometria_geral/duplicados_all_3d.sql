@@ -25,6 +25,13 @@ UNION
    FROM curso_de_agua_eixo a
      JOIN curso_de_agua_eixo b ON a.geometria && b.geometria AND a.identificador <> b.identificador AND st_equals(a.geometria, b.geometria)
 UNION
+SELECT a.identificador AS id1,
+   b.identificador AS id2,
+   a.geometria,
+   'no_hidrografico'::text AS ft
+  FROM no_hidrografico a
+    JOIN no_hidrografico b ON a.geometria && b.geometria AND a.identificador <> b.identificador AND st_equals(a.geometria, b.geometria)
+UNION
  SELECT a.identificador AS id1,
     b.identificador AS id2,
     a.geometria,
