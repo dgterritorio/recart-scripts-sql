@@ -66,6 +66,7 @@ UNION
     'no_trans_rodov'::text AS ft
    FROM no_trans_rodov a
      JOIN no_trans_rodov b ON a.geometria && b.geometria AND a.identificador <> b.identificador AND st_equals(a.geometria, b.geometria)
+     and not ((a.valor_tipo_no_trans_rodov='5' and b.valor_tipo_no_trans_rodov='4') or (a.valor_tipo_no_trans_rodov='4' and b.valor_tipo_no_trans_rodov='5'))
 UNION
  SELECT a.identificador AS id1,
     b.identificador AS id2,
