@@ -27,7 +27,7 @@ TIP: Para optimizar a execução do processo, criar o índice GiST para o TIN
 * os vértices estão no limite do trabalho e podem não ter nenhum triângulo correspondente;
 * os triângulos cruzam uma curva de nível, gerando falsos erros.
 
-.Falso erro devido ao triângulo cruzar ua curva de nível 
+.Falso erro devido ao triângulo cruzar uma curva de nível 
 image::imagens/falso_erro.jpg[,737,491]
 
 WARNING: Os resultados devem ser sempre avaliados à posteriori.
