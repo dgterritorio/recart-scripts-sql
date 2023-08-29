@@ -10,7 +10,7 @@ geográfica onde se encontram.
 .Identificação de erros de cota em curso de água
 image::imagens/info3d_consistencia_vertices.png[,665,382]
 
-== Médoto utilizado
+== Método utilizado
 
 1. Gerar um TIN com todos os pontos das curvas de nível;
 2. Para cada triângulo do TIN são criado dois atributos com a cota máxima e com a cota mínima
