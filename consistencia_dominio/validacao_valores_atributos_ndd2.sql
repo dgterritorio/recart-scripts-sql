@@ -1,4 +1,5 @@
 -- Carttop 2.0
+
 -- valida os códigos dos valores dos atributos para o NdD2. Apresenta os valores errados.
 
 SELECT 'ALTIMETRIA'::text AS tema,
@@ -47,7 +48,7 @@ SELECT 'CONSTRUÇÕES'::text AS tema,
    'valorTipoConstrucao'::text AS atributo,
    constru_polig.valor_tipo_construcao AS erro
   FROM public.constru_polig
- WHERE ((constru_polig.valor_tipo_construcao)::text <> ALL (ARRAY[ ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, ('6'::character varying)::text, ('7'::character varying)::text, ('8'::character varying)::text, ('10'::character varying)::text, ('11'::character varying)::text, , ('12'::character varying)::text]))
+ WHERE ((constru_polig.valor_tipo_construcao)::text <> ALL (ARRAY[ ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, ('6'::character varying)::text, ('7'::character varying)::text, ('8'::character varying)::text, ('10'::character varying)::text, ('11'::character varying)::text, ('12'::character varying)::text]))
 UNION
 SELECT 'CONSTRUÇÕES'::text AS tema,
    'Edificio'::text AS objeto,
@@ -133,9 +134,9 @@ SELECT 'HIDROGRAFIA'::text AS tema,
    'Barreira'::text AS objeto,
    barreira.identificador AS id,
    'valorBarreira'::text AS atributo,
-   agua_lentica.valor_barreira AS erro
+   barreira.valor_barreira AS erro
   FROM public.barreira
- WHERE ((agua_lentica.valor_barreira)::text <> ALL (ARRAY[('1'::character varying)::text, ('2'::character varying)::text, ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, ('6'::character varying)::text]))
+ WHERE ((barreira.valor_barreira)::text <> ALL (ARRAY[('1'::character varying)::text, ('2'::character varying)::text, ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, ('6'::character varying)::text]))
 UNION
 SELECT 'HIDROGRAFIA'::text AS tema,
    'ConstruNaMargem'::text AS objeto,
@@ -392,7 +393,7 @@ SELECT 'TRANSPORTES (Transporte ferroviário)'::text AS tema,
    'valorTipoNoTransFerrov'::text AS atributo,
    no_trans_ferrov.valor_tipo_no_trans_ferrov AS erro
   FROM public.no_trans_ferrov
- WHERE ((no_trans_ferrov.valor_tipo_no_trans_ferrov)::text <> ALL (ARRAY[('1'::character varying)::text, ('2'::character varying)::text, ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, (6'::character varying)::text, ('7'::character varying)::text]))
+ WHERE ((no_trans_ferrov.valor_tipo_no_trans_ferrov)::text <> ALL (ARRAY[('1'::character varying)::text, ('2'::character varying)::text, ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, ('6'::character varying)::text, ('7'::character varying)::text]))
 UNION
 SELECT 'TRANSPORTES (Transporte ferroviário)'::text AS tema,
    'SegViaFerrea'::text AS objeto,
@@ -532,9 +533,9 @@ SELECT 'TRANSPORTES (Transporte rodoviário)'::text AS tema,
  WHERE ((via_rodov_limite.valor_tipo_limite)::text <> ALL (ARRAY[('1'::character varying)::text, ('2'::character varying)::text]))
 UNION
 SELECT 'TRANSPORTES (Obra de arte)'::text AS tema,
-   'ObraArte'::text AS objeto,
-   obra_arte.identificador AS id,
-   'valorTipoObraArte'::text AS atributo,
-   obra_arte.valor_tipo_obra_arte AS erro
-  FROM public.obra_arte
- WHERE ((obra_arte.valor_tipo_obra_arte)::text <> ALL (ARRAY[('1'::character varying)::text, ('2'::character varying)::text, ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, ('6'::character varying)::text, ('7'::character varying)::text, , ('9'::character varying)::text]));
+    'ObraArte'::text AS objeto,
+    obra_arte.identificador AS id,
+    'valorTipoObraArte'::text AS atributo,
+    obra_arte.valor_tipo_obra_arte AS erro
+   FROM public.obra_arte
+  WHERE ((obra_arte.valor_tipo_obra_arte)::text <> ALL (ARRAY[('1'::character varying)::text, ('2'::character varying)::text, ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, ('6'::character varying)::text, ('7'::character varying)::text, ('9'::character varying)::text]));
