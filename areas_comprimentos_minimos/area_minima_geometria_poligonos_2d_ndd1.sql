@@ -1,6 +1,7 @@
+-- CartTop 2.0 
 -- Valida em area os objectos poligonais em 2D. Medição com a função ST_Area.
 -- NdD1: Valor mínimo 4 metros quadrados.
--- Aplica-se também a regra específica RE 7.1: área  da área agrícola, florestal ou mato  superior a 2000 m2.
+-- Aplica-se também a regra específica RE 7.1: área  da área agrícola, florestal ou mato superior a 2000 m2.
 
 
 SELECT area_trabalho.identificador,
@@ -10,12 +11,12 @@ SELECT area_trabalho.identificador,
    FROM public.area_trabalho
   WHERE (public.st_area(area_trabalho.geometria) < (4)::double precision)
 UNION
- SELECT margem.identificador,
-    public.st_area(margem.geometria) AS st_area,
-    public.st_setsrid((margem.geometria)::public.geometry(Polygon), 3763) AS geom,
-    'margem'::text AS ft
-   FROM public.margem
-  WHERE ((public.st_area(margem.geometria) < (4)::double precision) AND (public.st_geometrytype(margem.geometria) = 'ST_Polygon'::text))
+ SELECT terreno_marginal.identificador,
+    public.st_area(terreno_marginal.geometria) AS st_area,
+    public.st_setsrid((terreno_marginal.geometria)::public.geometry(Polygon), 3763) AS geom,
+    'terreno_marginal'::text AS ft
+   FROM public.terreno_marginal
+  WHERE ((public.st_area(terreno_marginal.geometria) < (4)::double precision) AND (public.st_geometrytype(terreno_marginal.geometria) = 'ST_Polygon'::text))
 UNION
  SELECT area_agricola_florestal_mato.identificador,
     public.st_area(area_agricola_florestal_mato.geometria) AS st_area,
