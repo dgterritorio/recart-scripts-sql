@@ -1,3 +1,4 @@
+-- CartTop 2.0
 -- valida em área os objetos poligonais em 3D. Medição com a função ST_Area combinada com ST_Force2D.
 -- NdD1: valor mínimo 4 metros quadrados.
 

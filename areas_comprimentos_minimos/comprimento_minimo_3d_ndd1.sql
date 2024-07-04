@@ -1,3 +1,4 @@
+-- CartTop 2.0
 -- Valida em comprimento os objectos lineares em 3D. Medição com a função ST_3DLength.
 -- Valor mínimo NdD1: 0.2 metros.
 

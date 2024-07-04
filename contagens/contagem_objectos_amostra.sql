@@ -1,3 +1,4 @@
+-- CartTop 2.0
 -- contagem objectos que intersectam as áeas de amostragem definidas em "sample_area", ordenada pelo tema e nome objecto
 
 WITH p as (SELECT 'Auxiliar'::text AS th,
@@ -12,10 +13,10 @@ UNION
      JOIN reconhecimento_campo.sample_area ON ST_Intersects(barreira.geometria, sample_area.geom)
 UNION
  SELECT 'Hidrografia'::text AS th,
-    'margem'::text AS ft,
+    'terreno_marginal'::text AS ft,
     count(*) AS num
-   FROM margem
-     JOIN reconhecimento_campo.sample_area ON ST_Intersects(margem.geometria, sample_area.geom)
+   FROM terreno_marginal
+     JOIN reconhecimento_campo.sample_area ON ST_Intersects(terreno_marginal.geometria, sample_area.geom)
 UNION
  SELECT 'Ocupação do solo'::text AS th,
     'area_agricola_florestal_mato'::text AS ft,
@@ -191,11 +192,11 @@ UNION
    FROM via_rodov_limite
      JOIN reconhecimento_campo.sample_area ON ST_Intersects(via_rodov_limite.geometria, sample_area.geom)
 UNION
-( with c as (SELECT concelho.identificador
-   FROM concelho
-   JOIN reconhecimento_campo.sample_area ON ST_Intersects(concelho.geometria, sample_area.geom) group by identificador)
+( with c as (SELECT municipio.identificador
+   FROM municipio
+   JOIN reconhecimento_campo.sample_area ON ST_Intersects(municipio.geometria, sample_area.geom) group by identificador)
    select 'Unidades administrativas'::text AS th,
-    'concelho'::text AS ft,
+    'municipio'::text AS ft,
     count(*) AS num from c)
 UNION
  (with f as (SELECT freguesia.identificador
@@ -388,6 +389,18 @@ UNION
     count(*) AS num
    FROM fronteira
      JOIN reconhecimento_campo.sample_area ON ST_Intersects(fronteira.geometria, sample_area.geom)
+UNION
+SELECT 'Hidrografia'::text AS th,
+    'constru_na_margem'::text AS ft,
+    count(*) AS num
+   FROM constru_na_margem
+     JOIN reconhecimento_campo.sample_area ON ST_Intersects(constru_na_margem.geometria, sample_area.geom)
+UNION
+SELECT 'Construções'::text AS th,
+    'constru_na_margem'::text AS ft,
+    count(*) AS num
+   FROM constru_na_margem
+     JOIN reconhecimento_campo.sample_area ON ST_Intersects(constru_na_margem.geometria, sample_area.geom)
 UNION
  SELECT 'Infraestruturas e serviços de interesse público'::text AS th,
     'oleoduto_gasoduto_subtancias_quimicas'::text AS ft,

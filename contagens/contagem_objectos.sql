@@ -1,3 +1,4 @@
+-- CartTop 2.0
 -- contagem objectos ordenada pelo tema e nome objecto
 
 WITH p as (SELECT 'Auxiliar'::text AS th,
@@ -11,9 +12,9 @@ UNION
    FROM public.barreira
 UNION
  SELECT 'Hidrografia'::text AS th,
-    'margem'::text AS ft,
+    'terreno_marginal'::text AS ft,
     count(*) AS num
-   FROM public.margem
+   FROM public.terreno_marginal
 UNION
  SELECT 'Ocupação do solo'::text AS th,
     'area_agricola_florestal_mato'::text AS ft,
@@ -161,9 +162,9 @@ UNION
    FROM public.via_rodov_limite
 UNION
  SELECT 'Unidades administrativas'::text AS th,
-    'concelho'::text AS ft,
+    'municipio'::text AS ft,
     count(*) AS num
-   FROM public.concelho
+   FROM public.municipio
 UNION
  SELECT 'Unidades administrativas'::text AS th,
     'freguesia'::text AS ft,
@@ -274,6 +275,16 @@ UNION
     'fronteira'::text AS ft,
     count(*) AS num
    FROM public.fronteira
+UNION
+SELECT 'Hidrografia'::text AS th,
+    'constru_na_margem'::text AS ft,
+    count(*) AS num
+   FROM constru_na_margem
+UNION
+SELECT 'Construções'::text AS th,
+    'numero_policia'::text AS ft,
+    count(*) AS num
+   FROM numero_policia
 UNION
  SELECT 'Infraestruturas e serviços de interesse público'::text AS th,
     'oleoduto_gasoduto_subtancias_quimicas'::text AS ft,
