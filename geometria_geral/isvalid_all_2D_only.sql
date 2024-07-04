@@ -1,3 +1,4 @@
+-- CartTop 2.0
 -- Test if an ST_Geometry value is well-formed in 2D according to the OGC rules. 2D polygons only.
 
 SELECT area_trabalho.identificador,
@@ -35,33 +36,19 @@ UNION
    FROM public.barreira
   WHERE (NOT public.st_isvalid(barreira.geometria))
 UNION
- SELECT margem.identificador,
-    public.st_isvalidreason(margem.geometria) AS st_isvalidreason,
-    public.st_setsrid((margem.geometria)::public.geometry(Polygon), 3763) AS geom,
-    'margem'::text AS ft
-   FROM public.margem
-  WHERE (NOT public.st_isvalid(margem.geometria))
+ SELECT terreno_marginal.identificador,
+    public.st_isvalidreason(terreno_marginal.geometria) AS st_isvalidreason,
+    public.st_setsrid((terreno_marginal.geometria)::public.geometry(Polygon), 3763) AS geom,
+    'terreno_marginal'::text AS ft
+   FROM public.terreno_marginal
+  WHERE (NOT public.st_isvalid(terreno_marginal.geometria))
 UNION
- SELECT elem_assoc_agua.identificador,
-    public.st_isvalidreason(elem_assoc_agua.geometria) AS st_isvalidreason,
-    public.st_setsrid((elem_assoc_agua.geometria)::public.geometry(Polygon), 3763) AS geom,
-    'elem_assoc_agua'::text AS ft
-   FROM public.elem_assoc_agua
-  WHERE (NOT public.st_isvalid(elem_assoc_agua.geometria))
-UNION
- SELECT elem_assoc_eletricidade.identificador,
-    public.st_isvalidreason(elem_assoc_eletricidade.geometria) AS st_isvalidreason,
-    public.st_setsrid((elem_assoc_eletricidade.geometria)::public.geometry(Polygon), 3763) AS geom,
-    'elem_assoc_eletricidade'::text AS ft
-   FROM public.elem_assoc_eletricidade
-  WHERE (NOT public.st_isvalid(elem_assoc_eletricidade.geometria))
-UNION
- SELECT mob_urbano_sinal.identificador,
-    public.st_isvalidreason(mob_urbano_sinal.geometria) AS st_isvalidreason,
-    public.st_setsrid((mob_urbano_sinal.geometria)::public.geometry(Polygon), 3763) AS geom,
-    'mob_urbano_sinal'::text AS ft
-   FROM public.mob_urbano_sinal
-  WHERE (NOT public.st_isvalid(mob_urbano_sinal.geometria))
+SELECT constru_na_margem.identificador,
+    public.st_isvalidreason(constru_na_margem.geometria) AS st_isvalidreason,
+    public.st_setsrid((constru_na_margem.geometria)::public.geometry(Polygon), 3763) AS geom,
+    'constru_na_margem'::text AS ft
+   FROM public.constru_na_margem
+  WHERE (NOT public.st_isvalid(constru_na_margem.geometria))
 UNION
  SELECT area_agricola_florestal_mato.identificador,
     public.st_isvalidreason(area_agricola_florestal_mato.geometria) AS st_isvalidreason,

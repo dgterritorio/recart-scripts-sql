@@ -1,4 +1,5 @@
-- --Verifica se existem objetos 3D com geometria igual dentro de cada tabela. Através da
+-- CartTop 2.0 
+--Verifica se existem objetos 3D com geometria igual dentro de cada tabela. Através da
 -- comparação de todos com todos (cross-join) e utilização da função ST_Equals (geom1,geom2).
 -- Nota 1: os elementos duplicados vão aparecer em dois registos, com os mesmos UUID em ordem inversa.
 -- Nota 2: este script pode ser muito demorado a correr devido ao "cross-join".

@@ -1,4 +1,5 @@
 
+-- CartTop 2.0 
 -- Verifica se existem objetos 2D com geometria igual dentro de cada tabela. Através da
 -- comparação de todos com todos (cross-join) e utilização da função ST_Equals (geom1,geom2).
 -- Nota 1: os elementos duplicados vão aparecer em dois registos, com os mesmos UUID em ordem inversa.
@@ -175,9 +176,9 @@ UNION
  SELECT a.identificador AS id1,
     b.identificador AS id2,
     a.geometria,
-    'margem'::text AS ft
-   FROM margem a
-     JOIN margem b ON a.geometria && b.geometria AND a.identificador <> b.identificador AND st_equals(a.geometria, b.geometria)
+    'terreno_marginal'::text AS ft
+   FROM terreno_marginal a
+     JOIN terreno_marginal b ON a.geometria && b.geometria AND a.identificador <> b.identificador AND st_equals(a.geometria, b.geometria)
 UNION
  SELECT a.identificador AS id1,
     b.identificador AS id2,
@@ -206,6 +207,20 @@ UNION
     'seg_via_cabo'::text AS ft
    FROM seg_via_cabo a
      JOIN seg_via_cabo b ON a.geometria && b.geometria AND a.identificador <> b.identificador AND st_equals(a.geometria, b.geometria)
+UNION
+SELECT a.identificador AS id1,
+    b.identificador AS id2,
+    a.geometria,
+    'constru_na_margem'::text AS ft
+   FROM constru_na_margem a
+     JOIN constru_na_margem b ON a.geometria && b.geometria AND a.identificador <> b.identificador AND st_equals(a.geometria, b.geometria)
+UNION
+SELECT a.identificador AS id1,
+    b.identificador AS id2,
+    a.geometria,
+    'numero_policia'::text AS ft
+   FROM numero_policia a
+     JOIN numero_policia b ON a.geometria && b.geometria AND a.identificador <> b.identificador AND st_equals(a.geometria, b.geometria)
 UNION
  SELECT a.identificador AS id1,
     b.identificador AS id2,

@@ -1,3 +1,4 @@
+-- CartTop 2.0
 -- Returns true if this Geometry has no anomalous geometric points, such as self intersection or self tangency
 -- A LINESTRING is simple if it does not pass through the same POINT twice (except for the endpoints,
 -- in which case it is referred to as a linear ring and additionally considered closed).
