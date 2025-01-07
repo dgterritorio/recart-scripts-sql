@@ -80,7 +80,7 @@ SELECT 'CONSTRUÇÕES'::text AS tema,
    'valorFormaEdificio'::text AS atributo,
    edificio.valor_forma_edificio AS erro
   FROM public.edificio
- WHERE ((edificio.valor_forma_edificio)::text <> ALL (ARRAY[('1'::character varying)::text, ('2'::character varying)::text, ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, ('7'::character varying)::text, ('8'::character varying)::text, ('9'::character varying)::text, ('10'::character varying)::text, ('12'::character varying)::text, ('13'::character varying)::text, ('14'::character varying)::text, ('15'::character varying)::text, ('16'::character varying)::text, ('17'::character varying)::text, ('18'::character varying)::text, ('19'::character varying)::text, ('20'::character varying)::text, ('21'::character varying)::text, ('23'::character varying)::text, ('24'::character varying)::text, ('25'::character varying)::text, ('26'::character varying)::text, ('27'::character varying)::text, ('28'::character varying)::text, ('29'::character varying)::text, ('30'::character varying)::text, ('31'::character varying)::text, ('32'::character varying)::text, ('33'::character varying)::text]))
+ WHERE ((edificio.valor_forma_edificio)::text <> ALL (ARRAY[('1'::character varying)::text, ('2'::character varying)::text, ('3'::character varying)::text, ('4'::character varying)::text, ('5'::character varying)::text, ('7'::character varying)::text, ('8'::character varying)::text, ('9'::character varying)::text, ('10'::character varying)::text, ('12'::character varying)::text, ('13'::character varying)::text, ('14'::character varying)::text, ('15'::character varying)::text, ('16'::character varying)::text, ('17'::character varying)::text, ('18'::character varying)::text, ('19'::character varying)::text, ('20'::character varying)::text, ('21'::character varying)::text, ('23'::character varying)::text, ('24'::character varying)::text, ('25'::character varying)::text, ('26'::character varying)::text, ('27'::character varying)::text, ('28'::character varying)::text, ('29'::character varying)::text, ('30'::character varying)::text, ('31'::character varying)::text, ('32'::character varying)::text, ('33'::character varying)::text, ('34'::character varying)::text, ('35'::character varying)::text]))
 UNION
 SELECT 'CONSTRUÇÕES'::text AS tema,
    'Edificio'::text AS objeto,
@@ -272,7 +272,7 @@ SELECT 'INFRAESTRUTURAS E SERVIÇOS DE INTERESSE PÚBLICO'::text AS tema,
    'valorElementoAssociadoPGQ'::text AS atributo,
    elem_assoc_pgq.valor_elemento_associado_pgq AS erro
   FROM public.elem_assoc_pgq
- WHERE ((elem_assoc_pgq.valor_elemento_associado_pgq)::text <> ALL (ARRAY[('1'::character varying)::text, ('2.1'::character varying)::text, ('2.2'::character varying)::text, ('2.3'::character varying)::text, ('2.4'::character varying)::text, ('3'::character varying)::text]))
+ WHERE ((elem_assoc_pgq.valor_elemento_associado_pgq)::text <> ALL (ARRAY[('1'::character varying)::text, ('2.1'::character varying)::text, ('2.2'::character varying)::text, ('2.3'::character varying)::text, ('2.4'::character varying)::text, ('2.100'::character varying)::text, ('3'::character varying)::text]))
 UNION
 SELECT 'INFRAESTRUTURAS E SERVIÇOS DE INTERESSE PÚBLICO'::text AS tema,
    'ElemAssocTelecomunicacoes'::text AS objeto,
