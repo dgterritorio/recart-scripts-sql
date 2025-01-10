@@ -397,10 +397,10 @@ SELECT 'Hidrografia'::text AS th,
      JOIN reconhecimento_campo.sample_area ON ST_Intersects(constru_na_margem.geometria, sample_area.geom)
 UNION
 SELECT 'Construções'::text AS th,
-    'constru_na_margem'::text AS ft,
+    'numero_policia'::text AS ft,
     count(*) AS num
-   FROM constru_na_margem
-     JOIN reconhecimento_campo.sample_area ON ST_Intersects(constru_na_margem.geometria, sample_area.geom)
+   FROM numero_policia
+     JOIN reconhecimento_campo.sample_area ON ST_Intersects(numero_policia.geometria, sample_area.geom)
 UNION
  SELECT 'Infraestruturas e serviços de interesse público'::text AS th,
     'oleoduto_gasoduto_subtancias_quimicas'::text AS ft,
